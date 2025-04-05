@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+  Hello World
+
+  <div id="hallo"></div>
+  <h2>Product List</h2>
+  <div id="product-list" class="product-list"></div>
+
+  <hr style="margin: 80px 0px;" />
+
+
+  <div id="cart">
+    <div class="cart-header">
+      <h2>Keranjang</h2>
+      <div class="cart-icon">
+        <i class="fa-solid fa-cart-shopping" style="font-size: 30px; color: orange;"></i>
+        <span id="count" class="count text-bold">0</span>
+      </div>
+    </div>
+
+
+    <div id="cart-list">
+    <div id="total">0</div>
+
+    </div>
+  </div>
+
+
+  <script>
+    document.getElementById("hallo").innerHTML = "Tiktok Live"
+    const products = [
+      {
+          title: "Aqua 500ml tessssta kahdkahjahfkjaf adgjagkjad",
+          price: 5000,
+          image: "https://images.tokopedia.net/img/cache/700/hDjmkQ/2021/5/18/4884d88f-7103-4518-a6db-cd84e18847a3.jpg",
+          store: {
+            name: "Berkah selalu",
+            address: "Bandung",
+          }
+      },
+      {
+          title: "Rinso 600g",
+          price: 7000,
+          image: "https://bosara.sultraprov.go.id/asset/foto_produk/Rinso_1.png",
+          store: {
+            name: "Jaya Makmur",
+            address: "Tangerang",
+          }
+      },
+      {
+          title: "Indomie 80g",
+          price: 2500,
+          image: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//catalog-image/103/MTA-142762945/indomie_indomie_goreng_full01_9665d511.jpg",
+          store: {
+            name: "Jaya Makmur",
+            address: "Tangerang",
+          }
+      },
+      // {
+      //     title: "Kopi 200g",
+      //     price: 3500,
+      //     image: "https://gratisongkir-storage.com/products/900x900/6vrpUCMDSvpj.jpg",
+      //     store: {
+      //       name: "Jaya Makmur",
+      //       address: "Tangerang",
+      //     }
+
+      // },
+
+    ]
+
+    let carts = []
+
+    for(let product of products){
+      document.getElementById("product-list").innerHTML += 
+      `
+        <div class="card">
+          <img src="${product.image}" alt="image">
+          <p class="text-title"> ${product.title}</p>
+          <p class="text-bold">Rp. ${product.price.toLocaleString('id-ID', { maximumFractionDigits: 0 })}</p>
+          <p class="text-italic"><i class="fa-solid fa-store text-primary"></i> ${product.store.address}</p>
+          <div class="btn">
+            <button class="btn-add" onclick='addToCart(${JSON.stringify(product)})'>Masukan Keranjang</button>
+          </div>
+          
+        </div>
+      `
+    }
+
+
+    function addToCart(product){
+
+      let productExist = carts.find((item) => item.title === product.title)
+      if(productExist){
+        productExist.qty += 1  
+      } else {
+        carts.push({...product, qty: 1})
+      }
+    
+      renderCartCount()
+      renderCart()
+    }
+
+    function renderCartCount(){
+      document.getElementById("count").innerHTML = carts.length
+    }
+
+    
+    function renderCart(){
+      document.getElementById("cart-list").innerHTML = ""
+      for(let cart of carts){
+        document.getElementById("cart-list").innerHTML +=
+        `
+          <div>
+            <p>${cart.title} x ${cart.qty} qty = <span class="text-bold">Rp. ${(cart.price * cart.qty).toLocaleString('id-ID', { maximumFractionDigits: 0 })}</span> </p>
+          </div>
+          <hr />
+        `
+      }
+      
+    }
+    
+  </script>
+
+</body>
+</html>
