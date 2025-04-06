@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
   Hello World
@@ -16,7 +16,6 @@
 
   <hr style="margin: 80px 0px;" />
 
-
   <div id="cart">
     <div class="cart-header">
       <h2>Keranjang</h2>
@@ -26,12 +25,15 @@
       </div>
     </div>
 
-
     <div id="cart-list">
-    <div id="total">0</div>
+    </div>
 
+    <div id="total">
+      
     </div>
   </div>
+
+  <a href="https://wa.me/628123456789?text=halllo">Pesan</a>
 
 
   <script>
@@ -90,7 +92,6 @@
           <div class="btn">
             <button class="btn-add" onclick='addToCart(${JSON.stringify(product)})'>Masukan Keranjang</button>
           </div>
-          
         </div>
       `
     }
@@ -115,8 +116,13 @@
 
     
     function renderCart(){
+      // 10.000 + 70000
+      let total = 0
       document.getElementById("cart-list").innerHTML = ""
       for(let cart of carts){
+        // 5000 * 2 = 10000
+        // 7000 * 1 = 7000
+        total += cart.price * cart.qty
         document.getElementById("cart-list").innerHTML +=
         `
           <div>
@@ -126,8 +132,34 @@
         `
       }
       
+      document.getElementById("total").innerHTML = 
+      `
+      <div class="btn-pay">
+        <strong class="total-price">Total : Rp. ${total.toLocaleString('id-ID', { maximumFractionDigits: 0 })}</strong>
+        <button onclick='payNow(${JSON.stringify(total)})'>Bayar Sekarang</button>
+      </div>
+      `
     }
-    
+
+    function payNow(totalPrice){
+      console.log(totalPrice);
+      const number = 628123456789
+
+      let productOrder = ''
+
+
+      for(let item of carts){
+        productOrder += `${item.title} ${item.qty} qty, `
+      }
+
+      const textBody = `Hallo saya ingin melakukan pembayaran untuk product ${productOrder} ini dengan nominal Rp. ${totalPrice.toLocaleString('id-ID', { maximumFractionDigits: 0 })}`
+      const url = `https://wa.me/${number}?text=${textBody}`
+
+      const a = document.createElement('a')
+      a.href = url
+      a.click()
+    }
+
   </script>
 
 </body>

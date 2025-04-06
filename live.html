@@ -1,80 +1,41 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="rumah">
 
-    <h2>Product List</h2>
-    <div id="product-list" class="product-list"></div>
+  <div class="garasi">
 
-  </body>
+    <div class="rak-sabun">
+    </div>
 
+    <div class="peralatan-nyuci">
+    </div>
+
+
+  </div>
+
+  <div class="ruang-tamu">
+
+  </div>
+
+  <div class="kamar">
+
+  </div>
+
+  <div class="dapur">
+
+  </div>
+
+  <div id="hallo"></div>
+  <div></div>
+  
 
   <script>
-   
-    //  JS DOM
-    // looping
-    const products = [
-      {
-          title: "Aqua 500ml tessssta kahdkahjahfkjaf adgjagkjad",
-          price: 5000,
-          image: "https://images.tokopedia.net/img/cache/700/hDjmkQ/2021/5/18/4884d88f-7103-4518-a6db-cd84e18847a3.jpg",
-          store: {
-            name: "Berkah selalu",
-            address: "Bandung",
-          }
-      },
-      {
-          title: "Rinso 600g",
-          price: 7000,
-          image: "https://bosara.sultraprov.go.id/asset/foto_produk/Rinso_1.png",
-          store: {
-            name: "Jaya Makmur",
-            address: "Tangerang",
-          }
-      },
-      {
-          title: "Indomie 80g",
-          price: 2500,
-          image: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//catalog-image/103/MTA-142762945/indomie_indomie_goreng_full01_9665d511.jpg",
-          store: {
-            name: "Jaya Makmur",
-            address: "Tangerang",
-          }
-      },
-      {
-          title: "Kopi 200g",
-          price: 3500,
-          image: "https://gratisongkir-storage.com/products/900x900/6vrpUCMDSvpj.jpg",
-          store: {
-            name: "Jaya Makmur",
-            address: "Tangerang",
-          }
-
-      },
-
-    ]
-
-    const nama1 = "asep"
-    const nama2 = "budi"
-    const nama3 = "siti"
-    console.log(nama1);
-    
-    for(let i = 0; i < products.length; i++){
-      document.getElementById("product-list").innerHTML += 
-      `
-        <div class="card">
-          <img src="${products[i].image}" alt="image">
-          <p class="text-title">${products[i].title}</p>
-          <p class="text-bold">Rp. ${products[i].price.toLocaleString('id-ID', { maximumFractionDigits: 0 })}</p>
-          <p class="text-italic">${products[i].store.name}</p>
-          <p class="text-italic">${products[i].store.address}</p>
-        </div>
-      `
-    }
-
+    document.getElementById("hallo").innerHTML = "Test"
   </script>
+</body>
 </html>
