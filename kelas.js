@@ -58,3 +58,14 @@
 //  indomie     12000     food  
 
 // database
+
+
+// FRONTEND
+// konsisten tiap hari belajar 3 jam
+// HTML & CSS -> 2 BULAN
+// JS -> 2 BULAN
+// FRONTEND -> REACT JS, NEXT JS -> 2 BULAN
+
+
+// tsx -> file htmlnya
+// ts -> filenya javascript/typescript

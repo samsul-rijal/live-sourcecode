@@ -10,8 +10,18 @@
 <body>
   Hello World
 
-  <div id="hallo"></div>
+  <!-- <h1 id="test">Halo</h1> -->
+  <div style="display: flex; gap: 10px; justify-content: center;">
+    <button style="background-color: orangered; color: white; border: none;">Live Now</button>
+    <div id="hallo">Tiktok Live</div>
+  </div>
+
+  
   <h2>Product List</h2>
+  <div class="input-search">
+    <input id="search" type="text" placeholder="silahkan cari product">
+  </div>
+
   <div id="product-list" class="product-list"></div>
 
   <hr style="margin: 80px 0px;" />
@@ -26,14 +36,12 @@
     </div>
 
     <div id="cart-list">
+      
     </div>
 
     <div id="total">
-      
     </div>
   </div>
-
-  <a href="https://wa.me/628123456789?text=halllo">Pesan</a>
 
 
   <script>
@@ -81,20 +89,40 @@
 
     let carts = []
 
-    for(let product of products){
-      document.getElementById("product-list").innerHTML += 
-      `
-        <div class="card">
-          <img src="${product.image}" alt="image">
-          <p class="text-title"> ${product.title}</p>
-          <p class="text-bold">Rp. ${product.price.toLocaleString('id-ID', { maximumFractionDigits: 0 })}</p>
-          <p class="text-italic"><i class="fa-solid fa-store text-primary"></i> ${product.store.address}</p>
-          <div class="btn">
-            <button class="btn-add" onclick='addToCart(${JSON.stringify(product)})'>Masukan Keranjang</button>
+    function renderProduct(filterProduct = products){
+      document.getElementById("product-list").innerHTML = ""
+      for(let product of filterProduct){
+        document.getElementById("product-list").innerHTML += 
+        `
+          <div class="card">
+            <img src="${product.image}" alt="image">
+            <p class="text-title"> ${product.title}</p>
+            <p class="text-bold">Rp. ${product.price.toLocaleString('id-ID', { maximumFractionDigits: 0 })}</p>
+            <p class="text-italic"><i class="fa-solid fa-store text-primary"></i> ${product.store.address}</p>
+            <div class="btn">
+              <button class="btn-add" onclick='addToCart(${JSON.stringify(product)})'>Masukan Keranjang</button>
+            </div>
           </div>
-        </div>
-      `
+        `
+      }
     }
+
+    renderProduct()
+
+
+    // document.getElementById("search").addEventListener()
+    // window.addEventListener("click", function(){
+    //   document.getElementById("test").innerHTML = "Saya di klik";
+    // });
+    // const test = document.getElementById("search").value
+    // console.log(test);
+    
+    window.addEventListener("input", function(e){
+      const textInput = e.target.value.toLowerCase();
+      // document.getElementById("test").innerHTML = textInput;
+      const filterProduct = products.filter((product) => product.title.toLowerCase().includes(textInput) || product.store.address.toLowerCase().includes(textInput))      
+      renderProduct(filterProduct)
+    });
 
 
     function addToCart(product){
@@ -114,7 +142,6 @@
       document.getElementById("count").innerHTML = carts.length
     }
 
-    
     function renderCart(){
       // 10.000 + 70000
       let total = 0
@@ -147,7 +174,6 @@
 
       let productOrder = ''
 
-
       for(let item of carts){
         productOrder += `${item.title} ${item.qty} qty, `
       }
@@ -157,10 +183,11 @@
 
       const a = document.createElement('a')
       a.href = url
+      a.target = '_blank'
       a.click()
     }
 
   </script>
 
 </body>
-</html>
+</html> 
