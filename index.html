@@ -7,8 +7,10 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scroll-carousel@1.2.7/dist/scroll.carousel.min.css" />
 </head>
 <body>
+  
   <nav>
     <div class="nav-left">
       <h2>Logo</h2>
@@ -18,7 +20,7 @@
         <a href="#">Home</a>
       </li>
       <li>
-        <a href="#">About</a>
+        <a href="#product">Product</a>
       </li>
       <li>
         <a href="#">Contact</a>
@@ -26,35 +28,51 @@
     </ul>
   </nav>
 
-  <div class="live">
-    <div 
-      data-aos="fade-up"
-      data-aos-anchor-placement="top-bottom"
-      data-aos-duration="1500">
-      <button class="blink" style="background-color: orangered; color: white; border: none;">Live Now</button>
-      <div class="icon-live">
-        <p><i class="fa-brands fa-youtube" style="color: red;"></i>Youtube</p>
-        <p><i class="fa-brands fa-tiktok"></i>Tiktok</p>
+  <div class="container-live">
+    <div class="live">
+      <div 
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-duration="1500">
+        <button class="blink" style="background-color: orangered; color: white; border: none;">Live Now</button>
+        <div class="icon-live">
+          <p><i class="fa-brands fa-youtube" style="color: red;"></i>Youtube</p>
+          <p><i class="fa-brands fa-tiktok"></i>Tiktok</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-icon">
+      <i class="fa-brands fa-html5" style="color: red;"></i>
+      <i class="fa-brands fa-css3-alt" style="color: blue;"></i>
+      <i class="fa-brands fa-js" style="color: orange;"></i>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <div class="kiri" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+      <div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque pariatur magnam exercitationem officiis? Illo omnis eaque perferendis nam inventore sunt reiciendis odit, autem consectetur magnam, est unde mollitia asperiores architecto?</p>
+        <button>Learn More</button>
+      </div>
+    </div>
+    <div class="kanan" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">
+      <div>
+        <img src="image1.png" alt="image" >
       </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="kiri" data-aos="fade-right"
-    data-aos-offset="300"
-    data-aos-easing="ease-in-sine">KIRI</div>
-    <div class="kanan" data-aos="fade-left"
-    data-aos-anchor="#example-anchor"
-    data-aos-offset="500"
-    data-aos-duration="500">KANAN</div>
-  </div>
+  <div id="product">
+    <h2 style="padding: 20px;">Product List</h2>
+    <div class="input-search">
+      <input id="search" type="text" placeholder="silahkan cari product">
+    </div>
+  
+    <div id="product-list" class="product-list"></div>
 
-  <h2>Product List</h2>
-  <div class="input-search">
-    <input id="search" type="text" placeholder="silahkan cari product">
   </div>
-
-  <div id="product-list" class="product-list"></div>
 
   <hr style="margin: 80px 0px;" />
 
@@ -78,9 +96,11 @@
   <script>
     AOS.init();
   </script>
-  
+
+  <script src="https://cdn.jsdelivr.net/npm/scroll-carousel@1.2.7/dist/scroll.carousel.min.js"></script>
 
   <script>
+    new ScrollCarousel(".carousel-icon", {speed: 10, smartSpeed: true, autoplay: true});
     // document.getElementById("hallo").innerHTML = "Tiktok Live"
     const products = [
       {
@@ -110,16 +130,16 @@
             address: "Tangerang",
           }
       },
-      // {
-      //     title: "Kopi 200g",
-      //     price: 3500,
-      //     image: "https://gratisongkir-storage.com/products/900x900/6vrpUCMDSvpj.jpg",
-      //     store: {
-      //       name: "Jaya Makmur",
-      //       address: "Tangerang",
-      //     }
+      {
+          title: "Kopi 200g",
+          price: 3500,
+          image: "https://gratisongkir-storage.com/products/900x900/6vrpUCMDSvpj.jpg",
+          store: {
+            name: "Jaya Makmur",
+            address: "Tangerang",
+          }
 
-      // },
+      },
 
     ]
 
@@ -152,6 +172,8 @@
     // });
     // const test = document.getElementById("search").value
     // console.log(test);
+
+
     
     window.addEventListener("input", function(e){
       const textInput = e.target.value.toLowerCase();
@@ -188,7 +210,7 @@
         total += cart.price * cart.qty
         document.getElementById("cart-list").innerHTML +=
         `
-          <div>
+          <div style="padding: 10px">
             <p>${cart.title} x ${cart.qty} qty = <span class="text-bold">Rp. ${(cart.price * cart.qty).toLocaleString('id-ID', { maximumFractionDigits: 0 })}</span> </p>
           </div>
           <hr />
@@ -239,5 +261,15 @@
 <!-- MOBILE APP -->
 <!-- FLUTTER -->
 <!-- REACT NATIVE -->
+
+
+<!-- FRONTEND -->
+ <!-- Saya ingin masukin data product -->
+
+
+<!-- API -->
+
+
+<!-- BACKEND -->
 </body>
 </html> 

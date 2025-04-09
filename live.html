@@ -4,38 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-
-  <style>
-    .content {
-      display: flex; 
-      background-color: red; 
-      justify-content: center; 
-      align-items: center; 
-      height: 100vh;
-    }
-
-  </style>
 </head>
 <body>
+  
+  <!-- atas kanan bawah kiri -->
 
-  <!-- <div style="display: flex; background-color: yellow; justify-content: end;">
+  <!-- atas bawah -->
+  <!-- kiri kanan -->
 
-    <div style="background-color: red;">
-      <h2>Kategori Pilihan</h2>
-    </div>
+  <div style="padding: 10px; background-color: blueviolet;">
+    <p style="background-color: yellow; padding: 20px;">LIVE SEKARANG</p>
+    <p style="background-color: blue;">NOW</p>
+    <p style="background-color: blue;">NOW</p>
+    <p style="background-color: blue;">NOW</p>
+    <p style="background-color: blue;">NOW</p>
+  </div>
+  <div style="background-color: red; padding-left: 20px; padding-top: 100px;">HALLO</div>
 
-    <div style="background-color: blue;">
-      <h2>Top Up & Tagihan</h2>
-    </div>
 
-  </div> -->
-  <div class="content">
-    <h2>HELLO WORLD</h2>
+  <button id="btn">KLIK SAYA</button>
+
+  <div id="surat">
+    <h2></h2>
   </div>
 
+  <script>
 
-  <!-- FROENTEND -->
-  <!-- REAXT JS, NEXT JS, ANGULAR JS, VUE JS, DLL -->
-  
+  // window.addEventListener("resize", function(){
+  //   document.getElementById("btn").innerHTML = "tampilan diresize";
+  //   alert("jangan macam macam")
+  // });
+
+
+
+  // asnyc function 
+  // fetch('https://equran.id/api/v2/surat')
+  //     .then(response => response.json())
+  //     .then(json => console.log(json.data))
+
+
+   async function getSurat(){
+    
+    const surat = await fetch('https://equran.id/api/v2/surat').then((res) => res.json())
+    // karena disini ada proses untuk komunikasi ke backend
+    // const response = await surat.json()
+    
+    for(let item of surat.data){
+      document.getElementById("surat").innerHTML += 
+      ` <div id="surat">
+          <h2>${item.namaLatin} <span>${item.nama}</span></h2>
+        </div>`
+    }
+       
+  }
+
+  getSurat()
+
+  // sync vs async
+
+  </script>
+
 </body>
 </html>
