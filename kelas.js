@@ -2,23 +2,19 @@
 // DARI NOL BANGET
 // Kelas HTML & CSS
 // WA: 0858-6000-8866
-// PROMO: 199K || 10 pertemuan || 4 minggu || 3x seminggu
+// PROMO: 199K || 11 pertemuan || 4 minggu || 3x seminggu
 // senin/rabu/jumat
 // 20.00-22.00
 // HTML & CSS // pemula
 // TailwindCSS // pemula
 // GIT // pemula
 
-// Kelas JS
-// Promo Alumni 99K
-// Harga 199K
+// Kelas JS FUNDAMENTAL + FRONTEND
 // JS FUNDAMENTAL
-// DOM
+// JS DOM
+// REACT JS
 
-// Kelas Frontend
-// React JS & Next JS
-
-// Kelas Backend
+// Kelas JS FUNDAMENTAL + Backend
 // Node Js & Express Js
 // Database
 // ORM
@@ -69,3 +65,15 @@
 
 // tsx -> file htmlnya
 // ts -> filenya javascript/typescript
+
+
+
+// SOAL
+// [123456789]
+
+// angka diatas tampung di kedalam ganjil dan genap
+// outputnya
+// ganjil: 13579
+// genap: 2468
+
+const angka = [123456789]

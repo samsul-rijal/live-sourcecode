@@ -6,17 +6,49 @@
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  Hello World
+  <nav>
+    <div class="nav-left">
+      <h2>Logo</h2>
+    </div>
+    <ul class="nav-right">
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </nav>
 
-  <!-- <h1 id="test">Halo</h1> -->
-  <div style="display: flex; gap: 10px; justify-content: center;">
-    <button style="background-color: orangered; color: white; border: none;">Live Now</button>
-    <div id="hallo">Tiktok Live</div>
+  <div class="live">
+    <div 
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-duration="1500">
+      <button class="blink" style="background-color: orangered; color: white; border: none;">Live Now</button>
+      <div class="icon-live">
+        <p><i class="fa-brands fa-youtube" style="color: red;"></i>Youtube</p>
+        <p><i class="fa-brands fa-tiktok"></i>Tiktok</p>
+      </div>
+    </div>
   </div>
 
-  
+  <div class="section">
+    <div class="kiri" data-aos="fade-right"
+    data-aos-offset="300"
+    data-aos-easing="ease-in-sine">KIRI</div>
+    <div class="kanan" data-aos="fade-left"
+    data-aos-anchor="#example-anchor"
+    data-aos-offset="500"
+    data-aos-duration="500">KANAN</div>
+  </div>
+
   <h2>Product List</h2>
   <div class="input-search">
     <input id="search" type="text" placeholder="silahkan cari product">
@@ -26,7 +58,7 @@
 
   <hr style="margin: 80px 0px;" />
 
-  <div id="cart">
+  <div id="cart" class="cart">
     <div class="cart-header">
       <h2>Keranjang</h2>
       <div class="cart-icon">
@@ -36,19 +68,23 @@
     </div>
 
     <div id="cart-list">
-      
     </div>
-
     <div id="total">
     </div>
   </div>
 
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    document.getElementById("hallo").innerHTML = "Tiktok Live"
+    AOS.init();
+  </script>
+  
+
+  <script>
+    // document.getElementById("hallo").innerHTML = "Tiktok Live"
     const products = [
       {
-          title: "Aqua 500ml tessssta kahdkahjahfkjaf adgjagkjad",
+          title: "Aqua Segar Sekali 500ml",
           price: 5000,
           image: "https://images.tokopedia.net/img/cache/700/hDjmkQ/2021/5/18/4884d88f-7103-4518-a6db-cd84e18847a3.jpg",
           store: {
@@ -189,5 +225,19 @@
 
   </script>
 
+<!-- FRONTEND -->
+<!-- REACTJS, NEXT JS, VUE JS, ANGULAR JS DLL -->
+
+<!-- MONOLITH -->
+<!-- FRONTEND BACKEND DI SATU PROJECT Menggunakan Template Engine -->
+<!-- LARAVEL -> Blade -->
+
+<!-- API DIPISAH ANTARA FE & BE-->
+<!-- FRONTEND -->
+<!-- BACKEND -->
+
+<!-- MOBILE APP -->
+<!-- FLUTTER -->
+<!-- REACT NATIVE -->
 </body>
 </html> 
